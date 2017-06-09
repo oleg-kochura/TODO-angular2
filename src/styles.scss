@@ -1,0 +1,11 @@
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb {
+  background: #3f51b5;
+  max-height: 50px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

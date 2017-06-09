@@ -1,0 +1,43 @@
+.todo-list {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.all {
+  .checked { display: flex; }
+  .not-checked { display: flex; }
+}
+
+.active {
+  .checked { display: none; }
+  .not-checked { display: flex; }
+}
+
+.completed {
+  .checked { display: flex; }
+  .not-checked { display: none; }
+}
+
+.todo-item {
+  &.checked,
+  &.not-checked {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0 40px 0 15px;
+    border-bottom: 1px solid grey;
+    box-sizing: content-box;
+  }
+}
+
+:host /deep/ .mat-list-item {
+  display: flex;
+  width: 90%;
+}
+
+.counter {
+  margin: auto;
+  line-height: 72px;
+  font-size: 16px;
+  font-family: "Roboto", "Helvetica Neue",sans-serif;
+}

@@ -1,0 +1,22 @@
+<form id="todoForm" class="todo-form" name="todo-form">
+
+  <md-input-container>
+    <input mdInput  [(ngModel)]="newTodoTitle" name="title" (keyup.enter)="addTodo()" placeholder="Add new task...">
+  </md-input-container>
+
+  <button md-raised-button class="delete-btn" type="button" (click)="addTodo()">Add</button>
+
+
+  <div class="toggle-wrapp">
+    <md-slide-toggle class="toggle-all" name="toggleAll" (change)="toggleAll()" [(ngModel)]="toggleState">
+      Toggle All
+    </md-slide-toggle>
+    <md-select placeholder="Sort By" name="select" [(ngModel)]="selectedValue" (change)="sort()">
+      <md-option *ngFor="let val of sortBy" [value]="val.value">
+        {{val.viewValue}}
+      </md-option>
+    </md-select>
+  </div>
+</form>
+
+
