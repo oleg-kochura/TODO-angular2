@@ -16,12 +16,21 @@ export class TasksListComponent implements OnInit {
   constructor(private todoService: TodoServiceService) {}
 
   ngOnInit() {
-    this.todoService.filter.subscribe(data => this.filterKey = data);
+    this.todoService.filter.subscribe(
+      data => this.filterKey = data
+    );
     this.todos = this.todoService.todos;
+
+    this.todos.subscribe(todos => console.log(todos)); //to log the changes in todos array in console
   }
 
-  remove(todo) {
+  remove(todo: Todo) {
     this.todoService.remove(todo)
+  }
+
+  //to log the changes in todos array in console
+  logChange() {
+    this.todoService.logChanges();
   }
 
 }

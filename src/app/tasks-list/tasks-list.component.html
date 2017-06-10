@@ -5,10 +5,10 @@
     </div>
     <md-list-item >
       <md-icon md-list-icon>
-        <md-checkbox [(ngModel)]="todo.done"></md-checkbox>
+        <md-checkbox [(ngModel)]="todo.done" (click)="logChange()"></md-checkbox>
       </md-icon>
       <h4 md-line>{{todo.title}}</h4>
-      <p md-line> {{todo.createdAt | date:'HH:mm:ss'}} </p>
+      <p md-line class="date">{{todo.createdAt | date:'HH:mm:ss'}}</p>
       <button md-icon-button (click)="remove(todo)">
         <i class="material-icons">clear</i>
       </button>

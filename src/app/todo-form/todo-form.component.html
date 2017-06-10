@@ -1,12 +1,10 @@
 <form id="todoForm" class="todo-form" name="todo-form">
-
   <md-input-container>
     <input mdInput  [(ngModel)]="newTodoTitle" name="title" (keyup.enter)="addTodo()" placeholder="Add new task...">
   </md-input-container>
-
-  <button md-raised-button class="delete-btn" type="button" (click)="addTodo()">Add</button>
-
-
+  <button md-icon-button class="delete-btn" type="button" (click)="addTodo()">
+    <i class="material-icons">add</i>
+  </button>
   <div class="toggle-wrapp">
     <md-slide-toggle class="toggle-all" name="toggleAll" (change)="toggleAll()" [(ngModel)]="toggleState">
       Toggle All

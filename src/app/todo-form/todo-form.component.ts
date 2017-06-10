@@ -10,8 +10,8 @@ import { Todo } from '../todo';
 
 export class TodoFormComponent {
   newTodoTitle: string = '';
-  selectedValue: string;
-  toggleState: boolean;
+  selectedValue: String;
+  toggleState: Boolean;
 
   sortBy = [
     {value: 'name', viewValue: 'Name'},

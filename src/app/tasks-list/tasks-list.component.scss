@@ -35,6 +35,11 @@
   width: 90%;
 }
 
+:host /deep/ .mat-list .mat-list-item .mat-line:nth-child(n+2) {
+  font-size: 11px;
+  font-style: italic;
+}
+
 .counter {
   margin: auto;
   line-height: 72px;

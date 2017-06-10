@@ -27,19 +27,19 @@ export class TodoServiceService {
     this._todos.next(this.todoStore.todos);
   }
 
-  remove(todo){
+  remove(todo: Todo){
     let index = this.todoStore.todos.indexOf(todo);
 
     this.todoStore.todos.splice(index, 1);
     this._todos.next(this.todoStore.todos);
   }
 
-  toggleAll(state) {
+  toggleAll(state: Boolean) {
     this.todoStore.todos.forEach(todo => todo.done = state);
     this._todos.next(this.todoStore.todos);
   }
 
-  filterBy(key) {
+  filterBy(key: String) {
     if(key === 'clearcompleted') {
       this.clearCompleted();
     } else {
@@ -53,22 +53,30 @@ export class TodoServiceService {
   }
 
   sort(key) {
-    if (key === 'name') {
-      this.todoStore.todos.sort((a, b) => {
-        if (a.title > b.title) return 1;
-        if (a.title < b.title) return -1;
-      });
-    } else if (key === 'number') {
-        this.todoStore.todos.sort((a, b) => {
-          if (a.id > b.id) return 1;
-          if (a.id < b.id) return -1;
-        })
-    } else if (key === 'date') {
-      this.todoStore.todos.sort((a, b) => {
-        if (a.createdAt > b.createdAt) return 1;
-        if (a.createdAt < b.createdAt) return -1;
-      })
+    switch (key) {
+      case 'name':
+         this.sortingBy('title');
+         break;
+      case 'number':
+         this.sortingBy('id');
+         break;
+      case 'date':
+         this.sortingBy('createdAt');
+         break;
     }
+
     this._todos.next(this.todoStore.todos);
+  }
+
+  sortingBy(value) {
+    this.todoStore.todos.sort((a, b) => {
+      if (a[value] > b[value]) return 1;
+      if (a[value] < b[value]) return -1;
+    });
+  }
+
+  //to log the changes in todos array in console
+  logChanges() {
+    console.log(this.todoStore.todos);
   }
 }
