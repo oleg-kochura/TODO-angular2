@@ -15,4 +15,8 @@ export class FooterComponent {
     this.todoService.filterBy(key);
   }
 
+  clearCompleted() {
+    this.todoService.clearCompleted();
+  }
+
 }

@@ -40,11 +40,7 @@ export class TodoServiceService {
   }
 
   filterBy(key: String) {
-    if(key === 'clearcompleted') {
-      this.clearCompleted();
-    } else {
       this._filter.next(key);
-    }
   }
 
   clearCompleted() {
