@@ -20,17 +20,10 @@ export class TasksListComponent implements OnInit {
       data => this.filterKey = data
     );
     this.todos = this.todoService.todos;
-
-    this.todos.subscribe(todos => console.log(todos)); //to log the changes in todos array in console
   }
 
   remove(todo: Todo) {
     this.todoService.remove(todo)
-  }
-
-  //to log the changes in todos array in console
-  logChange() {
-    this.todoService.logChanges();
   }
 
 }

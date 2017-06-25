@@ -71,8 +71,4 @@ export class TodoServiceService {
     });
   }
 
-  //to log the changes in todos array in console
-  logChanges() {
-    console.log(this.todoStore.todos);
-  }
 }
