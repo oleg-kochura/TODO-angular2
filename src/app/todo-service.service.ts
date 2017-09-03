@@ -49,26 +49,12 @@ export class TodoServiceService {
   }
 
   sort(key) {
-    switch (key) {
-      case 'name':
-         this.sortingBy('title');
-         break;
-      case 'number':
-         this.sortingBy('id');
-         break;
-      case 'date':
-         this.sortingBy('createdAt');
-         break;
-    }
+    this.todoStore.todos.sort((a, b) => {
+      if (a[key] > b[key]) return 1;
+      if (a[key] < b[key]) return -1;
+    });
 
     this._todos.next(this.todoStore.todos);
-  }
-
-  sortingBy(value) {
-    this.todoStore.todos.sort((a, b) => {
-      if (a[value] > b[value]) return 1;
-      if (a[value] < b[value]) return -1;
-    });
   }
 
 }
